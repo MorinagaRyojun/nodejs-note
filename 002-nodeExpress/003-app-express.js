@@ -2,10 +2,16 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+const path = require('path');
+const index = path.join(__dirname,'/webpages/index.html')
 
 app.get("/", (req,res) => {
-    res.send("Hello World!")
+    res.status(200);
+    res.type('text/html');
+    res.sendFile(index);
 });
+
+
 
 app.listen(PORT, ()=>{
     console.log("SERVER IS STARTED PORT",PORT);
